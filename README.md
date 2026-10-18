@@ -18,7 +18,7 @@ mkdir -p cmake-build-debug
 cd cmake-build-debug
 cmake ..
 cmake --build .
-./Taller1_ElliotBravo_NicolasDiaz
+./TALLER2_ElliotBravo_NicolasDiaz
 ```
 
 ### Opción 2: g++ manual

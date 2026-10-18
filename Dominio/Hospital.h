@@ -1,6 +1,6 @@
 
-#ifndef TALLER1_ELLIOTBRAVO_NICOLASDIAZ_HOSPITAL_H
-#define TALLER1_ELLIOTBRAVO_NICOLASDIAZ_HOSPITAL_H
+#ifndef TALLER2_ELLIOTBRAVO_NICOLASDIAZ_HOSPITAL_H
+#define TALLER2_ELLIOTBRAVO_NICOLASDIAZ_HOSPITAL_H
 #include "../Logica/ColaPacientes.h"
 #include "../Logica/NodoServicio.h"
 #include "../Logica/StackHistorial.h"
