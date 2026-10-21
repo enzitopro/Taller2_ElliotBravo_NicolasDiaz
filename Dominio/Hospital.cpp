@@ -132,7 +132,7 @@ void Hospital::lecturaPacientes() {
             continue;
         }
         if (!convertirEntero(campos[10], diasHospitalizacion) || diasHospitalizacion < 0) {
-            cout << "Linea " << numeroLinea << " invalida (dias de hospitalizacion negativos o no numericos, se omite: " << linea < endl;
+            cout << "Linea " << numeroLinea << " invalida (dias de hospitalizacion negativos o no numericos, se omite: " << linea << endl;
             continue;
         }
         if (buscarPaciente(id) != nullptr) {
