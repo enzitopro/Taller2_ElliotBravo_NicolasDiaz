@@ -32,7 +32,7 @@ int Paciente::getDolor() const {
     return dolor;
 }
 
-string Paciente::getTipo() const {
+string Paciente::getTipoDolor() const {
     return tipoDolor;
 }
 
