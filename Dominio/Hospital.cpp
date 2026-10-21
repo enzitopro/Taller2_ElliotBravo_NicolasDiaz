@@ -108,7 +108,7 @@ void Hospital::lecturaPacientes() {
         int diasHospitalizacion;
 
         if (!convertirEntero(campos[2], edad) || edad < 0 || edad > 120) {
-            cout << "Linea " << numeroLinea << " invalida (edad fuera de rango 0-120), se omite: " << linea < endl;
+            cout << "Linea " << numeroLinea << " invalida (edad fuera de rango 0-120), se omite: " << linea << endl;
             continue;
         }
         if (!convertirDecimal(campos[3], temperatura) || temperatura < 30 || temperatura > 45.0) {
@@ -116,7 +116,7 @@ void Hospital::lecturaPacientes() {
             continue;
         }
         if (!convertirEntero(campos[4], presionArterial) || presionArterial < 50 || presionArterial > 250) {
-            cout << "Linea " << numeroLinea << " invalida (presion arterial fuera de rango 50-250), se omite: " << linea < endl;
+            cout << "Linea " << numeroLinea << " invalida (presion arterial fuera de rango 50-250), se omite: " << linea << endl;
             continue;
         }
         if (!convertirEntero(campos[5], dolor) || dolor < 0 || dolor > 10) {
@@ -136,7 +136,7 @@ void Hospital::lecturaPacientes() {
             continue;
         }
         if (buscarPaciente(id) != nullptr) {
-            cout << "ID existente " << id << ". Paciente no registrado" << nombre << endl;
+            cout << "ID existente " << id << ". Paciente no registrado: " << nombre << endl;
             continue;
         }
 
