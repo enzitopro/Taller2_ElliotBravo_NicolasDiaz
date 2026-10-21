@@ -17,6 +17,10 @@ class Hospital {
     Servicio* buscarServicio(std::string nombreBuscado);
     void agregarServicio(std::string nombre);
     void limpiarCampo(std::string &campo);
+    bool convertirEntero(std::string texto, int &resultado);
+    bool convertirDecimal(std::string texto, double &resultado);
+    bool convertirBinario(std::string texto, bool &resultado);
+    bool tipoDolorVariado(std::string tipo);
 
 public:
     Hospital();
