@@ -1,5 +1,5 @@
 #include "Arbol.h"
-
+using namespace std;
 Arbol::Arbol() {
     raiz = nullptr;
     arbolConstruir();
@@ -66,4 +66,27 @@ bool Arbol::pregunta(Paciente *p, int valor) {
         return p->getDiasHospitalizacion() >= 2;
     }
     return false;
+}
+string Arbol::clasificar(Paciente *p) {
+    if (p== nullptr) {
+        return "";
+    }
+
+    NodoDecision* actual = raiz;
+
+    while (actual != nullptr) {
+        if (actual->getValor()==0) {
+            return actual->getNombre();
+        }
+
+        if (pregunta(p,actual->getValor())) {
+            actual = actual->getIzquierda();
+        }else {
+            actual = actual->getDerecha();
+        }
+
+    }
+    return "";
+
+
 }

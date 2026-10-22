@@ -13,7 +13,8 @@ private:
     void arbolConstruir();
     bool pregunta(Paciente* p,int valor);
 public:
-    Arbol();
+    Arbol()
+    std::string clasificar(Paciente* p);
     ~Arbol();
 
 
