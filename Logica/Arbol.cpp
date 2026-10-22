@@ -1,4 +1,5 @@
 #include "Arbol.h"
+#include <iostream>
 using namespace std;
 Arbol::Arbol() {
     raiz = nullptr;
@@ -87,6 +88,54 @@ string Arbol::clasificar(Paciente *p) {
 
     }
     return "";
+}
 
+void Arbol::preorden(NodoDecision* nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+
+    mostrarNodo(nodo);
+    preorden(nodo->getIzquierda());
+    preorden(nodo->getDerecha());
+}
+
+void Arbol::inorden(NodoDecision *nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+    inorden(nodo->getIzquierda());
+    mostrarNodo(nodo);
+    inorden(nodo->getDerecha());
+}
+
+void Arbol::postorden(NodoDecision* nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+    postorden(nodo->getIzquierda());
+    postorden(nodo->getDerecha());
+    mostrarNodo(nodo);
+}
+
+void Arbol::mostrarNodo(NodoDecision* nodo) {
+    if (nodo->getValor() == 0) {
+        cout << "Servicio: " << nodo->getNombre() << endl;
+    }else {
+        cout << "Condicion" << nodo->getValor() << endl;
+    }
+}
+
+void Arbol::MostrarInorden() {
+    inorden(raiz);
+}
+void Arbol::MostrarPreorden() {
+    preorden(raiz);
 
 }
+
+void Arbol::MostrarPostorden() {
+    postorden(raiz);
+}
+
+

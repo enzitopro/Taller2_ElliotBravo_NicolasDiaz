@@ -1,6 +1,3 @@
-//
-// Created by nicol on 22-10-2026.
-//
 
 #ifndef TALLER2_ELLIOTBRAVO_NICOLASDIAZ_ARBOL_H
 #define TALLER2_ELLIOTBRAVO_NICOLASDIAZ_ARBOL_H
@@ -12,9 +9,27 @@ private:
 
     void arbolConstruir();
     bool pregunta(Paciente* p,int valor);
+
+
+    void preorden(NodoDecision* nodo);
+    void inorden(NodoDecision* nodo);
+    void postorden(NodoDecision* nodo);
+    void mostrarNodo(NodoDecision* nodo);
+
+
+
+
 public:
-    Arbol()
+    Arbol();
     std::string clasificar(Paciente* p);
+
+
+    void MostrarPreorden();
+    void MostrarInorden();
+    void MostrarPostorden();
+
+
+
     ~Arbol();
 
 
