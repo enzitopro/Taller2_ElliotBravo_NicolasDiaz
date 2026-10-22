@@ -5,12 +5,17 @@
 #ifndef TALLER2_ELLIOTBRAVO_NICOLASDIAZ_ARBOL_H
 #define TALLER2_ELLIOTBRAVO_NICOLASDIAZ_ARBOL_H
 #include "NodoDecision.h"
-
+#include "../Dominio/Paciente.h"
 class Arbol {
 private:
     NodoDecision* raiz;
-    public:
+
+    void arbolConstruir();
+    bool pregunta(Paciente* p,int valor);
+public:
     Arbol();
+    ~Arbol();
+
 
 };
 
