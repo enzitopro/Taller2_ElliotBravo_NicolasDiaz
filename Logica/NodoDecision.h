@@ -6,7 +6,7 @@
 #define TALLER2_ELLIOTBRAVO_NICOLASDIAZ_NODODECISION_H
 #include <string>
 
-#include "NodoPaciente.h"
+
 
 
 class NodoDecision {
@@ -17,10 +17,12 @@ class NodoDecision {
     NodoDecision* derecha;
     public:
     NodoDecision(int valor, std::string nombre);
-    nodoDecision* getIzquierda();
-    nodoDecision* getDerecha();
-    void setIzquierda(nodoDecision* izquierda);
-    void setDerecha(nodoDecision* derecha);
+    NodoDecision* getIzquierda();
+    NodoDecision* getDerecha();
+    void setIzquierda(NodoDecision* izquierda);
+    void setDerecha(NodoDecision* derecha);
+    int getValor();
+    std::string getNombre();
 };
 
 
