@@ -80,6 +80,11 @@ NodoAVL* AVL::balancear(NodoAVL* nodo) {
     string id = nodo->paciente->getId();
 
     if (balance < -1) {
+        if (factorBalance(nodo->izquierda) <= 0) {
+        cout << " Rotacion simple derecha (caso LL) en " << id << endl;
+            return rotarDerecha(nodo);
+        }
+
         cout << " Rotacion doble izquierda-derecha (caso LR) en " << id << endl;
         nodo->izquierda = rotarIzquierda(nodo->izquierda);
         return rotarDerecha(nodo);
