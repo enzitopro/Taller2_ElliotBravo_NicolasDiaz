@@ -83,3 +83,35 @@ NodoAVL* AVL::balancear(NodoAVL* nodo) {
     }
     return nodo;
 }
+
+bool AVL::insertar(Paciente *paciente) {
+    if (paciente == nullptr) {
+        return false;
+    }
+    bool insertado = false;
+    raiz = insertar(raiz, paciente, insertado);
+    return insertado;
+}
+
+NodoAVL *AVL::insertar(NodoAVL *nodo, Paciente *paciente, bool &insertado) {
+    if (nodo == nullptr) {
+        insertado = true;
+        return new NodoAVL(paciente);
+    }
+
+    string idNuevo = paciente->getId();
+    string idActual = nodo->paciente->getId();
+
+    if (idNuevo < idActual) {
+        nodo->izquierda = insertar(nodo->izquierda, paciente, insertado);
+    }
+    else if (idNuevo > idActual) {
+        nodo->derecha = insertar(nodo->derecha, paciente, insertado);
+    }
+    else {
+        insertado = false;
+        return nodo;
+    }
+    return balancear(nodo);
+}
+
