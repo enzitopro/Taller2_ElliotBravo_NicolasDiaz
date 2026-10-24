@@ -67,4 +67,19 @@ NodoAVL *AVL::rotarIzquierda(NodoAVL *nodo) {
     return hijo;
 }
 
-NodoAVL* AVL::balancear(NodoAVL* nodo) {}
+NodoAVL* AVL::balancear(NodoAVL* nodo) {
+    actualizarAltura(nodo);
+    int balance = factorBalance(nodo);
+    string id = nodo->paciente->getId();
+
+    if (balance < -1) {
+        if (factorBalance(nodo->izquierda) <= 0) {
+            cout << " Rotacion simple derecha (caso LL) en " << id << endl;
+            return rotarDerecha(nodo);
+        }
+        cout << " Rotacion doble derecha-izquierda (caso RL) en " << id << endl;
+        nodo->derecha = rotarDerecha(nodo->derecha);
+        return rotarIzquierda(nodo);
+    }
+    return nodo;
+}
