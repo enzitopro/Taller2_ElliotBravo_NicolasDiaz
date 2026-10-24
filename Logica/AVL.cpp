@@ -115,3 +115,94 @@ NodoAVL *AVL::insertar(NodoAVL *nodo, Paciente *paciente, bool &insertado) {
     return balancear(nodo);
 }
 
+bool AVL::eliminar(string id) {
+    bool eliminado = false;
+    raiz = eliminar(raiz, id, eliminado);
+    return eliminado;
+}
+
+NodoAVL *AVL::buscarMinimo(NodoAVL *nodo) {
+    while (nodo->izquierda != nullptr) {
+        nodo = nodo->izquierda;
+    }
+    return nodo;
+}
+
+NodoAVL *AVL::eliminar(NodoAVL *nodo, std::string id, bool &eliminado) {
+    if (nodo == nullptr) {
+        return nullptr;
+    }
+
+    string idActual = nodo->paciente->getId();
+    if (id < idActual) {
+        nodo->izquierda = eliminar(nodo->izquierda, id, eliminado);
+    }
+    else if (id > idActual) {
+        nodo->derecha = eliminar(nodo->derecha, id, eliminado);
+    }
+    else {
+        eliminado = true;
+
+        // caso sin hijos o con un solo hijo
+        if (nodo->izquierda == nullptr || nodo->derecha == nullptr) {
+            NodoAVL* hijo = nodo->izquierda;
+            if (hijo == nullptr) {
+                hijo = nodo->derecha;
+            }
+            delete nodo->paciente;
+            delete nodo;
+            return hijo;
+        }
+
+        //caso dos hijos
+        NodoAVL* sucesor = buscarMinimo(nodo->derecha);
+        Paciente* pacienteBorrado = nodo->paciente;
+        nodo->paciente = sucesor->paciente;
+        sucesor->paciente = pacienteBorrado;
+        nodo->derecha = eliminar(nodo->derecha, pacienteBorrado->getId(), eliminado);
+    }
+    return balancear(nodo);
+}
+
+Paciente *AVL::buscarPorId(std::string id, std::string &ruta) {
+    NodoAVL* actual = raiz;
+    ruta = "";
+    while (actual != nullptr) {
+        string idActual = actual->paciente->getId();
+        if (ruta != "") {
+            ruta += " -> ";
+        }
+        ruta += idActual;
+
+        if (id == idActual) {
+            return actual->paciente;
+        }
+        if (id < idActual) {
+            actual = actual->izquierda;
+        }
+        else {
+            actual = actual->derecha;
+        }
+    }
+    return nullptr;
+}
+
+Paciente *AVL::buscarPorNombre(std::string nombre) {
+    return buscarPorNombre(raiz, nombre);
+}
+
+Paciente* AVL::buscarPorNombre(NodoAVL* nodo, std::string nombre) {
+    if (nodo == nullptr) {
+        return nullptr;
+    }
+    if (nodo->paciente->getNombre() == nombre) {
+        return nodo->paciente;
+    }
+    Paciente* encontrado = buscarPorNombre(nodo->izquierda, nombre);
+    if (encontrado != nullptr) {
+        return encontrado;
+    }
+    return buscarPorNombre(nodo->derecha, nombre);
+}
+
+
