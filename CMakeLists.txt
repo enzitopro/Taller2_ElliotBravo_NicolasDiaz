@@ -20,4 +20,8 @@ add_executable(Taller2_ElliotBravo_NicolasDiaz App/main.cpp
         Logica/ColaPacientes.cpp
         Logica/StackHistorial.h
         Logica/StackHistorial.cpp
+        Logica/Arbol.h
+        Logica/NodoDecision.cpp
+        Logica/Arbol.cpp
+        Logica/NodoAVL.h
 )

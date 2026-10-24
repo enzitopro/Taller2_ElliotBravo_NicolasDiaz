@@ -16,3 +16,6 @@
 016;Tomas Leiva;40;36.8;115;3;espalda;0;0;0;0
 017;Rocio Munoz;28;36.8;115;3;otro;2;0;0;0
 001;Juan Duplicado;30;36.8;115;3;otro;0;0;0;0
+018;Martina Lopez;40;36.7;118;1;otro;0;0;0;0
+020;Benjamin Silva;35;36.9;121;2;abdomen;0;0;0;0
+019;Antonia Reyes;52;37.0;119;3;otro;0;0;0;1

@@ -52,9 +52,12 @@ bool Hospital::tipoDolorVariado(std::string tipo) {
 
 
 void Hospital::lecturaPacientes() {
-    ifstream archivo("../Dominio/pacientes.txt");
+    ifstream archivo("Dominio/pacientes.txt");
     if (!archivo.is_open()) {
-        cout << "ERROR: No se encontró el archivo." << endl;
+        archivo.open("../Dominio/pacientes.txt");
+    }
+    if (!archivo.is_open()) {
+        cout << "ERROR: No se encontró el archivo pacientes.txt" << endl;
         return;
     }
 

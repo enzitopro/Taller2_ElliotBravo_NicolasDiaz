@@ -10,12 +10,12 @@
 
 
 class NodoDecision {
-    private:
+private:
     int valor;
     std::string nombre;
     NodoDecision* izquierda;
     NodoDecision* derecha;
-    public:
+public:
     NodoDecision(int valor, std::string nombre);
     NodoDecision* getIzquierda();
     NodoDecision* getDerecha();

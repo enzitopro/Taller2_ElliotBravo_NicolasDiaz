@@ -16,24 +16,17 @@ private:
     void postorden(NodoDecision* nodo);
     void mostrarNodo(NodoDecision* nodo);
 
-
-
-
 public:
     Arbol();
+    ~Arbol();
     std::string clasificar(Paciente* p);
-
 
     void MostrarPreorden();
     void MostrarInorden();
     void MostrarPostorden();
-
-
-
-    ~Arbol();
-
-
 };
+
+#endif
 
 
 
