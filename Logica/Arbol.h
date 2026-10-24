@@ -16,6 +16,7 @@ private:
     void postorden(NodoDecision* nodo);
     void mostrarNodo(NodoDecision* nodo);
 
+    void destruir(NodoDecision* nodo);
 public:
     Arbol();
     ~Arbol();

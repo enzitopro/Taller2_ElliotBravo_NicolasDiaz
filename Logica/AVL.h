@@ -28,7 +28,7 @@ private:
     void preorden(NodoAVL* nodo);
     void postorden(NodoAVL* nodo);
     void mostrarFactores(NodoAVL* nodo);
-    void listarPacientes(NodoAVL* nodo);
+    void listarPacientes(NodoAVL* nodo, bool &primero);
     void destruir(NodoAVL* nodo);
 
 public:

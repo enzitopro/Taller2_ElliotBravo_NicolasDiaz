@@ -4,7 +4,7 @@
 
 #ifndef TALLER2_ELLIOTBRAVO_NICOLASDIAZ_NODOAVL_H
 #define TALLER2_ELLIOTBRAVO_NICOLASDIAZ_NODOAVL_H
-
+#include "../Dominio/Paciente.h"
 struct NodoAVL {
     Paciente* paciente;
     NodoAVL* izquierda;

@@ -7,6 +7,11 @@ Arbol::Arbol() {
     arbolConstruir();
 }
 
+Arbol::~Arbol() {
+    destruir(raiz);
+    raiz = nullptr;
+}
+
 void Arbol::destruir(NodoDecision* nodo) {
     if (nodo == nullptr) {
         return;
@@ -25,7 +30,7 @@ void Arbol::arbolConstruir() {
     NodoDecision* cirugia = new NodoDecision(4, "RequiereCirugia == 1");
     NodoDecision* cirugiaSinTrauma = new NodoDecision(4, "RequiereCirugia == 1");
     NodoDecision* neurologico = new NodoDecision(5, "SintomasNeurologicos == 1 o TipoDolor == cabeza");
-    NodoDecision* pecho = new NodoDecision(6, "TipoDOlor == pecho o PresionArterial >= 160");
+    NodoDecision* pecho = new NodoDecision(6, "TipoDolor == pecho o PresionArterial >= 160");
     NodoDecision* urgenciaModerada = new NodoDecision(8, "Temperatura >= 38.5 o Dolor >= 7");
     NodoDecision* hospitalizacion = new NodoDecision(7, "DiasHospitalizacion >= 2");
 
@@ -48,7 +53,10 @@ void Arbol::arbolConstruir() {
     neurologico->setDerecha(pecho);
     // cardiologia
     pecho->setIzquierda(new NodoDecision(0,"Cardiologia"));
-    pecho->setDerecha(hospitalizacion);
+    pecho->setDerecha(urgenciaModerada);
+    //urgencia moderada
+    urgenciaModerada->setIzquierda(new NodoDecision(0,"Urgencias"));
+    urgenciaModerada->setDerecha(hospitalizacion);
     //hospitalizacion
     hospitalizacion->setIzquierda(new NodoDecision(0,"Hospitalizacion"));
     hospitalizacion->setDerecha(new NodoDecision(0,"Medicina General"));
@@ -71,7 +79,7 @@ bool Arbol::pregunta(Paciente *p, int valor) {
         return p->getSintomasNeurologicos() || p->getTipoDolor() == "cabeza";
     }
     if (valor == 6) {
-        return p->getTipoDolor() == "pecho";
+        return p->getTipoDolor() == "pecho" || p->getPresionArterial() >= 160;
     }
     if (valor == 7) {
         return p->getDiasHospitalizacion() >= 2;
