@@ -205,4 +205,93 @@ Paciente* AVL::buscarPorNombre(NodoAVL* nodo, std::string nombre) {
     return buscarPorNombre(nodo->derecha, nombre);
 }
 
+bool AVL::estaVacio() {
+    return raiz == nullptr;
+}
 
+int AVL::getAltura() {
+    return altura(raiz);
+}
+
+void AVL::inorden(NodoAVL *nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+    inorden(nodo->izquierda);
+    cout << nodo->paciente->getId() << " ";
+    inorden(nodo->derecha);
+}
+
+void AVL::preorden(NodoAVL *nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+    cout << nodo->paciente->getId() << " ";
+    preorden(nodo->izquierda);
+    preorden(nodo->derecha);
+}
+
+void AVL::postorden(NodoAVL *nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+    postorden(nodo->izquierda);
+    postorden(nodo->derecha);
+    cout << nodo->paciente->getId() << " ";
+}
+
+void AVL::mostrarFactores(NodoAVL* nodo) {
+    if (nodo == nullptr) {
+        return;
+    }
+    mostrarFactores(nodo->izquierda);
+    cout << "ID " << nodo->paciente->getId()
+         << " | altura: " << nodo->altura
+         << " | FB: " << factorBalance(nodo) << endl;
+    mostrarFactores(nodo->derecha);
+}
+
+void AVL::mostrarInorden() {
+    cout << "Inorden: ";
+    inorden(raiz);
+    cout << endl;
+}
+
+void AVL::mostrarPostorden() {
+    cout << "Postorden: ";
+    postorden(raiz);
+    cout << endl;
+}
+
+void AVL::mostrarPreorden() {
+    cout << "Preorden: ";
+    preorden(raiz);
+    cout << endl;
+}
+
+void AVL::mostrarFactoresBalance() {
+    if (raiz == nullptr) {
+        cout << "Arbol vacio" << endl;
+        return;
+    }
+    mostrarFactores(raiz);
+}
+
+void AVL::listarPacientes(NodoAVL* nodo, bool &primero) {
+    if (nodo == nullptr) {
+        return;
+    }
+    listarPacientes(nodo->izquierda, primero);
+    if (!primero) {
+        cout << ", ";
+    }
+    cout << nodo->paciente->getNombre() << " (" << nodo->paciente->getId() << ")";
+    primero = false;
+    listarPacientes(nodo->derecha, primero);
+}
+
+void AVL::mostrarPacientes() {
+    bool primero = true;
+    listarPacientes(raiz, primero);
+    cout << endl;
+}
