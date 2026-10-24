@@ -24,4 +24,5 @@ add_executable(Taller2_ElliotBravo_NicolasDiaz App/main.cpp
         Logica/NodoDecision.cpp
         Logica/Arbol.cpp
         Logica/NodoAVL.h
+        Logica/AVL.h
 )
