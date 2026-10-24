@@ -43,4 +43,28 @@ void AVL::actualizarAltura(NodoAVL *nodo) {
     }
 }
 
+NodoAVL *AVL::rotarDerecha(NodoAVL *nodo) {
+    NodoAVL* hijo = nodo->izquierda;
+    NodoAVL* subarbolMedio = hijo->derecha;
 
+    hijo->derecha = nodo;
+    nodo->izquierda = subarbolMedio;
+
+    actualizarAltura(nodo);
+    actualizarAltura(hijo);
+    return hijo;
+}
+
+NodoAVL *AVL::rotarIzquierda(NodoAVL *nodo) {
+    NodoAVL* hijo = nodo->derecha;
+    NodoAVL* subarbolMedio = hijo->izquierda;
+
+    hijo->izquierda = nodo;
+    nodo->derecha = subarbolMedio;
+
+    actualizarAltura(nodo);
+    actualizarAltura(hijo);
+    return hijo;
+}
+
+NodoAVL* AVL::balancear(NodoAVL* nodo) {}
