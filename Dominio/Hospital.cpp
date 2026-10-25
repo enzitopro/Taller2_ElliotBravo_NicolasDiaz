@@ -233,6 +233,7 @@ void Hospital::verDepartamento() {
         Servicio* s = buscarServicio(nombresOpciones[opcion-1]);
         if (s != nullptr) {
             s->mostrarEstado();
+            s->mostrarRecorridos();
     } else {
         cout << "Opcion inválida" << endl;
         }
@@ -303,7 +304,6 @@ void Hospital::preguntarPaciente() {
             cout << "Paciente objetivo:"<< endl;
             buscado->imprimirInfo();
 
-            cout << "Servicio: " << actual->servicio->getNombre() << endl;
             if (buscadoporID) {
                 cout << "Ruta de busqueda: " << ruta << endl;
             }
@@ -313,9 +313,9 @@ void Hospital::preguntarPaciente() {
     }
         cout << "Paciente no encontrado" << endl;
 
-
-
 }
+
+
 
 
 

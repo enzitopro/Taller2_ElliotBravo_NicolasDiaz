@@ -10,9 +10,10 @@ int main() {
         cout << "=== HOSPITAL MARMAJA ===" << endl;
         cout << "1. Atender pacientes" << endl;
         cout << "2. Ver departamento" << endl;
-        cout << "3. Revisar historial de atencion" << endl;
-        cout <<"4. Busqueda por ID" << endl;
-        cout << "5. Salir" << endl;
+        cout << "3. Buscar Paciente" << endl;
+        cout << "4. Eliminar Paciente" << endl;
+        cout << "5. Mostrar recorrido de arbol" << endl;
+        cout << "6. Salir" << endl;
         cout << "Seleccionar opcion: ";
         cin >> opcion;
 
@@ -28,19 +29,24 @@ int main() {
                 hospital.verDepartamento();
                 break;
             case 3:
-                cout <<"=== HISTORIAL ===" << endl;
-                break;
-            case 4:
-                cout <<"=== ID ===" << endl;
+                cout <<"=== Paciente a buscar ===" << endl;
                 hospital.preguntarPaciente();
                 break;
+            case 4:
+                cout <<"=== Paciente a eliminar===" << endl;
+
+                break;
             case 5:
+                cout <<"=== Recorridos ===" << endl;
+
+                break;
+            case 6:
                 cout << "Hasta luego :D" << endl;
                 break;
             default:
                 cout << "Opcion no valida" << endl;
         }
-    } while (opcion != 5);
+    } while (opcion != 6);
 
     return 0;
 }

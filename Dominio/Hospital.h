@@ -16,7 +16,6 @@ private:
     NodoServicio* inicioServicios;
 
     Servicio* buscarServicio(std::string nombreBuscado);
-    Servicio* elegirServicio();
     void agregarServicio(std::string nombre);
     void limpiarCampo(std::string &campo);
 
