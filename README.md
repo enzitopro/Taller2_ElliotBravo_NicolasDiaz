@@ -43,13 +43,12 @@ Abrir la carpeta del proyecto y ejecutar el target `Taller2_ElliotBravo_NicolasD
 ## Uso (menú)
 | Opción | Qué hace |
 |---|---|
-| 1. Atender pacientes | Saca pacientes de la cola en orden FIFO, los evalúa con el árbol de decisión (muestra la ruta), y los inserta en el AVL del servicio asignado |
-| 2. Ver departamentos | Muestra los 8 servicios con sus pacientes (en orden de ID) o "Sin pacientes" |
+| 1. Atender pacientes | Saca pacientes de la cola en orden FIFO, los evalúa con el árbol de decisión (muestra la ruta) y los inserta en el AVL del servicio asignado |
+| 2. Ver departamento | Se elige uno de los 8 servicios y muestra sus pacientes, los recorridos inorden, preorden y postorden de su AVL, la altura y el factor de balance de cada nodo |
 | 3. Buscar paciente | Busca por ID (muestra la ruta de IDs recorridos en el AVL). Si no encuentra ese ID, busca por nombre |
-| 4. Recorridos, altura y FB de un AVL | Muestra inorden, preorden, postorden, altura del árbol y el factor de balance de cada nodo de un servicio |
-| 5. Eliminar paciente por ID | Elimina el paciente del AVL donde esté y rebalancea |
-| 6. Recorridos del árbol de decisión | Muestra el árbol de decisión en preorden, inorden y postorden |
-| 7. Salir | Termina el programa y libera la memoria |
+| 4. Eliminar paciente | Elimina el paciente por ID del AVL donde esté y rebalancea |
+| 5. Mostrar recorrido de árbol | Muestra el árbol de decisión en preorden, inorden y postorden |
+| 6. Salir | Termina el programa y libera la memoria |
 
 ## Formato del archivo de pacientes
 Cada línea de `Dominio/pacientes.txt`:
