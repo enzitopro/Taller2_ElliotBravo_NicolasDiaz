@@ -174,7 +174,7 @@ void Hospital::atenderPacientes(int cantidad) {
         string servicioObjetivo= arbolDecision.clasificar(pacienteObjetivo);
         Servicio* servicioADerivar=buscarServicio(servicioObjetivo);
         if (servicioADerivar == nullptr) {
-            cout << "No se encontre servicio" << endl;
+            cout << "No se encontro el servicio" << endl;
 
             delete pacienteObjetivo;
             continue;
@@ -335,7 +335,7 @@ void Hospital::eliminarPaciente() {
     NodoServicio* nodo = inicioServicios;
     while (nodo != nullptr) {
         if (nodo->servicio->eliminarPaciente(id)) {
-            cout<< "Paciente" << id << ", eliminado correctamente "<< endl;
+            cout<< "Paciente " << id << ", eliminado correctamente "<< endl;
             return;
         }
         nodo=nodo->siguiente;

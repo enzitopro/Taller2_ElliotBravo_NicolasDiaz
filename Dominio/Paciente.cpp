@@ -70,7 +70,7 @@ void Paciente::imprimirInfo() const {
     cout << "Tipo de Dolor: " << tipoDolor << endl;
     cout << "Trauma: " << trauma << endl;
     cout << "Sintomas Neurologicos: " << sintomasNeurologicos << endl;
-    cout << "Requie Cirugia: " << requiereCirugia << endl;
+    cout << "Requiere Cirugia: " << requiereCirugia << endl;
     cout << "Dias de Hospitalizacion: " << diasHospitalizacion << endl;
     if (servicioDestino != "") {
         cout << "Servicio: " << servicioDestino << endl;

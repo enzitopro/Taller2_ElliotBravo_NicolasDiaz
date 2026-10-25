@@ -31,7 +31,7 @@ void Servicio::mostrarEstado()  {
     pacientes.mostrarPacientes();
 }
 void Servicio::mostrarRecorridos() {
-    cout << "=== AVL de" << nombre << " ===" << endl;
+    cout << "=== AVL de " << nombre << " ===" << endl;
 
     if (pacientes.estaVacio()) {
         cout << "Sin Pacientes "<< endl;
