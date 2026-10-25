@@ -151,7 +151,7 @@ void Arbol::mostrarNodo(NodoDecision* nodo) {
     if (nodo->getValor() == 0) {
         cout << "Servicio: " << nodo->getNombre() << endl;
     }else {
-        cout << "Condicion" << nodo->getValor() << endl;
+        cout << "Condicion: " << nodo->getValor() << " "<< nodo->getNombre() << endl;
     }
 }
 

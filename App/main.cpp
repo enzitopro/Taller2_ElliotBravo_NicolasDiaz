@@ -38,7 +38,7 @@ int main() {
                 break;
             case 5:
                 cout <<"=== Recorridos ===" << endl;
-
+                hospital.mostrarArbolDecision();
                 break;
             case 6:
                 cout << "Hasta luego :D" << endl;

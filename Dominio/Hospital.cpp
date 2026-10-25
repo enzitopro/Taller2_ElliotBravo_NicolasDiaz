@@ -315,6 +315,12 @@ void Hospital::preguntarPaciente() {
 
 }
 
+void Hospital::mostrarArbolDecision() {
+    arbolDecision.MostrarPreorden();
+    arbolDecision.MostrarInorden();
+    arbolDecision.MostrarPostorden();
+}
+
 
 
 
