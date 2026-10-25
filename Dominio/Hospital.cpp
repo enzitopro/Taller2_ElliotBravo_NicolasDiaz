@@ -279,19 +279,44 @@ Paciente* Hospital::buscarPaciente(string id) {
 }
 
 void Hospital::preguntarPaciente() {
-    string idObjetivo;
-    cout << "Ingrese ID a buscar" << endl;
-    cout << "ID:  ";
+    string objetivo;
+    cout << "Ingrese ID o nombre a buscar: ";
 
-    cin >> idObjetivo;
-    Paciente* paciente = buscarPaciente(idObjetivo);
+    cin.ignore();
+    getline(cin,objetivo);
 
-    if (paciente == nullptr) {
-        cout << "Paciente no encontrado" << endl;
-        return;
+    NodoServicio* actual = inicioServicios;
+    while (actual != nullptr) {
+        string ruta;
+
+        Paciente* buscado =actual->servicio->buscarPorId(objetivo,ruta);
+        bool buscadoporID= false;
+        if (buscado != nullptr) {
+            buscadoporID= true;
+        }
+
+        if (buscado == nullptr) {
+            buscado=actual->servicio->buscarPorNombre(objetivo);
+        }
+
+        if (buscado != nullptr) {
+            cout << "Paciente objetivo:"<< endl;
+            buscado->imprimirInfo();
+
+            cout << "Servicio: " << actual->servicio->getNombre() << endl;
+            if (buscadoporID) {
+                cout << "Ruta de busqueda: " << ruta << endl;
+            }
+            return;
+        }
+        actual= actual->siguiente;
     }
-    paciente->imprimirInfo();
+        cout << "Paciente no encontrado" << endl;
+
+
+
 }
+
 
 
 

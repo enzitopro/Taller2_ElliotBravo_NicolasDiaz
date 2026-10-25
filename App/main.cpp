@@ -29,11 +29,10 @@ int main() {
                 break;
             case 3:
                 cout <<"=== HISTORIAL ===" << endl;
-                hospital.mostrarHistorial();
                 break;
             case 4:
                 cout <<"=== ID ===" << endl;
-                hospital.preguntarId();
+                hospital.preguntarPaciente();
                 break;
             case 5:
                 cout << "Hasta luego :D" << endl;

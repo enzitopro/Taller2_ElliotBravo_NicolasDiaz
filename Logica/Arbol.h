@@ -28,21 +28,3 @@ public:
 };
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#endif //TALLER2_ELLIOTBRAVO_NICOLASDIAZ_ARBOL_H
-
