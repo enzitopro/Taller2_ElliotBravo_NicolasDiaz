@@ -154,28 +154,42 @@ void Hospital::mostrarPacientes() {
 }
 
 void Hospital::atenderPacientes(int cantidad) {
+    if (cantidad <= 0) {
+        cout << "No hay pacientes" << endl;
+        return;
+    }
     cout << "=== ATENDIENDO PACIENTES ===" << endl;
     for (int i = 0; i < cantidad; i++) {
+
         Paciente * pacienteObjetivo = colaPacientes.front();
+
         if (pacienteObjetivo == nullptr) {
+
             cout << "No quedan pacientes por atender" << endl;
             break;
-        } else {
-            string servicioObjetivo = pacienteObjetivo->getServicioDestino();
-            Servicio* servicioADerivar = buscarServicio(servicioObjetivo);
-            if (servicioADerivar == nullptr) {
-                cout << "El servicio buscado no existe en el Hospital. Se omite este paciente" << endl;
-                colaPacientes.pop();
-                delete pacienteObjetivo;
-                continue;
-            }
-            pacienteObjetivo->imprimirInfo();
-            servicioADerivar->recibirPaciente(pacienteObjetivo);
-            cout << "Paciente enviado a " << servicioADerivar->getNombre() << "." << endl;
-            cout << "" << endl;
-            colaPacientes.pop();
-            historial.push(pacienteObjetivo);
         }
+        colaPacientes.pop();
+        pacienteObjetivo->imprimirInfo();
+
+        string servicioObjetivo= arbolDecision.clasificar(pacienteObjetivo);
+        Servicio* servicioADerivar=buscarServicio(servicioObjetivo);
+        if (servicioADerivar == nullptr) {
+            cout << "No se encontre servicio" << endl;
+
+            delete pacienteObjetivo;
+            continue;
+        }
+        cout << "Servicio: " << servicioADerivar->getNombre() << endl;
+        bool agregado= servicioADerivar->recibirPaciente(pacienteObjetivo);
+
+        if (agregado) {
+            cout << "Paciente insertado en AVL de "<< servicioADerivar->getNombre() << endl;
+
+        }else {
+            cout << "No se pudo insertar, paciente:" << pacienteObjetivo->getId() << endl;
+            delete pacienteObjetivo;
+        }
+
     }
 }
 
@@ -245,10 +259,7 @@ Hospital::~Hospital() {
     }
 }
 
-void Hospital::mostrarHistorial() {
-    historial.mostrarHistorial();
 
-}
 Paciente* Hospital::buscarPaciente(string id) {
     Paciente* pacienteObjetivo = colaPacientes.buscarPaciente(id);
     if (pacienteObjetivo != nullptr) {
@@ -267,7 +278,7 @@ Paciente* Hospital::buscarPaciente(string id) {
     return nullptr;
 }
 
-void Hospital::preguntarId() {
+void Hospital::preguntarPaciente() {
     string idObjetivo;
     cout << "Ingrese ID a buscar" << endl;
     cout << "ID:  ";
