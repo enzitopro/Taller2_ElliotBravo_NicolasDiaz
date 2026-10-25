@@ -1,19 +1,29 @@
 #ifndef SERVICIO_H
 #define SERVICIO_H
 #include <string>
-#include "../Logica/ListaPacientes.h"
+#include "../Logica/AVL.h"
 
 class Servicio {
 private:
     std::string nombre;
-    ListaPacientes pacientes;
+
+
+    AVL pacientes;
 public:
     Servicio(std::string nombre);
-    std::string getNombre() const;
-    void recibirPaciente(Paciente* p);
-    void mostrarEstado() const;
-    Paciente* buscarPaciente(std:: string id);
 
+    std::string getNombre() const;
+
+    bool recibirPaciente(Paciente* p);
+
+    void mostrarEstado() ;
+    void mostrarRecorridos();
+
+    Paciente* buscarPaciente(std:: string id);
+    Paciente* buscarPorId(std:: string id,std:: string &ruta);
+    Paciente* buscarPorNombre(std::string nombre);
+
+    bool eliminarPaciente(std:: string id);
 };
 
 #endif
