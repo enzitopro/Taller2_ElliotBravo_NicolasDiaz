@@ -229,6 +229,12 @@ void Hospital::verDepartamento() {
         << "8. Hospitalizacion" << endl
         << "Seleccionar opcion: ";
     cin >> opcion;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Opcion invalida" << endl;
+        return;
+    }
     if (1 <= opcion && opcion <= 8) {
         Servicio* s = buscarServicio(nombresOpciones[opcion-1]);
         if (s != nullptr) {

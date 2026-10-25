@@ -16,13 +16,25 @@ int main() {
         cout << "6. Salir" << endl;
         cout << "Seleccionar opcion: ";
         cin >> opcion;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            opcion = 0;
+        }
 
         switch (opcion) {
             case 1:
                 int cantidad;
                 cout << "=== PACIENTES EN ESPERA ===" << endl;
                 hospital.mostrarPacientes();
-                cout << "Cuantos pacientes desea atender?: "; cin >> cantidad;
+                cout << "Cuantos pacientes desea atender?: ";
+                cin >> cantidad;
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Cantidad invalida" << endl;
+                    break;
+                }
                 hospital.atenderPacientes(cantidad);
                 break;
             case 2:
