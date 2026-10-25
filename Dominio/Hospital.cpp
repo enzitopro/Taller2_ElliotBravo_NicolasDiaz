@@ -321,6 +321,21 @@ void Hospital::mostrarArbolDecision() {
     arbolDecision.MostrarPostorden();
 }
 
+void Hospital::eliminarPaciente() {
+    string id;
+    cout << "Ingrese ID de paciente a eliminar: ";
+    cin >> id;
+
+    NodoServicio* nodo = inicioServicios;
+    while (nodo != nullptr) {
+        if (nodo->servicio->eliminarPaciente(id)) {
+            cout<< "Paciente" << id << ", eliminado correctamente "<< endl;
+            return;
+        }
+        nodo=nodo->siguiente;
+    }
+    cout << "Paciente no existe "<< endl;
+}
 
 
 

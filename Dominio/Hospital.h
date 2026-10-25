@@ -33,7 +33,6 @@ public:
     void verDepartamento();
     Paciente* buscarPaciente(std:: string id);
     void preguntarPaciente();
-    void MostrarRecorridosServicio();
     void eliminarPaciente();
     void mostrarArbolDecision();
 

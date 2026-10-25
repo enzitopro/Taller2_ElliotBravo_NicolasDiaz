@@ -34,6 +34,7 @@ int main() {
                 break;
             case 4:
                 cout <<"=== Paciente a eliminar===" << endl;
+                hospital.eliminarPaciente();
 
                 break;
             case 5:
